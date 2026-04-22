@@ -1,0 +1,307 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ElectroHub | Premium Electronics</title>
+    <style>
+        /* RESET & BASE */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+        }
+        body {
+            background: #f4f7f6;
+            color: #2d3436;
+            padding-top: 80px; /* Space for fixed nav */
+        }
+
+        /* NAVBAR */
+        nav {
+            position: fixed;
+            top: 0;
+            width: 100%;
+            background: #2d3436;
+            padding: 15px 5%;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            z-index: 1000;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.2);
+        }
+        nav .logo {
+            color: #00cec9;
+            font-size: 24px;
+            font-weight: bold;
+            text-decoration: none;
+        }
+        nav div a {
+            color: white;
+            margin-left: 20px;
+            text-decoration: none;
+            font-size: 16px;
+            transition: 0.3s;
+        }
+        nav div a:hover {
+            color: #00cec9;
+        }
+
+        /* SEARCH SECTION */
+        .search-container {
+            background: #fff;
+            padding: 40px 20px;
+            text-align: center;
+            border-bottom: 1px solid #ddd;
+        }
+        .search-container h1 {
+            margin-bottom: 20px;
+            font-size: 28px;
+            color: #2d3436;
+        }
+        .search-box input {
+            width: 90%;
+            max-width: 600px;
+            padding: 15px 25px;
+            border: 2px solid #dfe6e9;
+            border-radius: 50px;
+            outline: none;
+            font-size: 16px;
+            transition: 0.3s;
+        }
+        .search-box input:focus {
+            border-color: #00cec9;
+            box-shadow: 0 0 10px rgba(0,206,201,0.2);
+        }
+
+        /* PRODUCT GRID */
+        section {
+            padding: 40px 5%;
+        }
+        .section-title {
+            font-size: 24px;
+            margin-bottom: 30px;
+            border-left: 5px solid #00cec9;
+            padding-left: 15px;
+        }
+        .products {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+            gap: 25px;
+        }
+        .product {
+            background: white;
+            border-radius: 15px;
+            padding: 20px;
+            text-align: center;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.05);
+            transition: 0.3s;
+            border: 1px solid #eee;
+        }
+        .product:hover {
+            transform: translateY(-8px);
+            box-shadow: 0 10px 25px rgba(0,0,0,0.1);
+        }
+        .product img {
+            width: 100%;
+            height: 180px;
+            object-fit: contain;
+            margin-bottom: 15px;
+        }
+        .product-name {
+            font-size: 18px;
+            font-weight: 600;
+            margin-bottom: 8px;
+            height: 45px;
+            overflow: hidden;
+        }
+        .category {
+            font-size: 12px;
+            color: #636e72;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            margin-bottom: 10px;
+            display: block;
+        }
+        .price {
+            font-size: 20px;
+            color: #d63031;
+            font-weight: bold;
+            margin-bottom: 15px;
+        }
+        .buy {
+            display: block;
+            background: #2d3436;
+            color: white;
+            padding: 12px;
+            border-radius: 8px;
+            text-decoration: none;
+            font-weight: 500;
+            transition: 0.3s;
+        }
+        .buy:hover {
+            background: #00cec9;
+            color: #2d3436;
+        }
+
+        /* FOOTER */
+        footer {
+            background: #2d3436;
+            color: #b2bec3;
+            padding: 40px 20px;
+            text-align: center;
+            margin-top: 50px;
+        }
+        footer b { color: white; }
+
+        /* RESPONSIVE */
+        @media(max-width: 600px) {
+            .products { grid-template-columns: 1fr 1fr; gap: 10px; }
+            .product { padding: 10px; }
+            .product-name { font-size: 14px; height: 35px; }
+            .price { font-size: 16px; }
+        }
+    </style>
+</head>
+<body>
+
+    <nav>
+        <a href="#" class="logo">ElectroHub</a>
+        <div>
+            <a href="#products">Store</a>
+            <a href="#contact">Support</a>
+        </div>
+    </nav>
+
+    <div class="search-container">
+        <h1>Tech Essentials</h1>
+        <div class="search-box">
+            <input type="text" id="searchBar" placeholder="Search for phones, laptops, or accessories..." onkeyup="searchProducts()">
+        </div>
+    </div>
+
+    <section id="products">
+        <h2 class="section-title">Latest Arrivals</h2>
+        <div class="products" id="productGrid">
+            
+            <div class="product">
+                <span class="category">Smartphone</span>
+                <img src="https://images.unsplash.com/photo-1592899677977-9c10ca588bbd?w=400" alt="iPhone">
+                <h3 class="product-name">iPhone 15 Pro</h3>
+                <p class="price">₹1,34,900</p>
+                <a href="#" class="buy">Add to Cart</a>
+            </div>
+
+            <div class="product">
+                <span class="category">Smartphone</span>
+                <img src="https://images.unsplash.com/photo-1610945265064-0e34e5519bbf?w=400" alt="Samsung">
+                <h3 class="product-name">Samsung Galaxy S24</h3>
+                <p class="price">₹79,999</p>
+                <a href="#" class="buy">Add to Cart</a>
+            </div>
+
+            <div class="product">
+                <span class="category">Smartphone</span>
+                <img src="https://images.unsplash.com/photo-1598327105666-5b89351aff97?w=400" alt="Pixel">
+                <h3 class="product-name">Google Pixel 8</h3>
+                <p class="price">₹65,000</p>
+                <a href="#" class="buy">Add to Cart</a>
+            </div>
+
+            <div class="product">
+                <span class="category">Laptop</span>
+                <img src="https://images.unsplash.com/photo-1517336714731-489689fd1ca8?w=400" alt="Macbook">
+                <h3 class="product-name">MacBook Air M3</h3>
+                <p class="price">₹1,14,900</p>
+                <a href="#" class="buy">Add to Cart</a>
+            </div>
+
+            <div class="product">
+                <span class="category">Laptop</span>
+                <img src="https://images.unsplash.com/photo-1593642632823-8f785ba67e45?w=400" alt="Dell">
+                <h3 class="product-name">Dell XPS 13</h3>
+                <p class="price">₹98,000</p>
+                <a href="#" class="buy">Add to Cart</a>
+            </div>
+
+            <div class="product">
+                <span class="category">Laptop</span>
+                <img src="https://images.unsplash.com/photo-1541807084-5c52b6b3adef?w=400" alt="Surface">
+                <h3 class="product-name">Microsoft Surface Pro</h3>
+                <p class="price">₹85,000</p>
+                <a href="#" class="buy">Add to Cart</a>
+            </div>
+
+            <div class="product">
+                <span class="category">Audio</span>
+                <img src="https://images.unsplash.com/photo-1505740420928-5e560c06d30e?w=400" alt="Headphones">
+                <h3 class="product-name">Sony WH-1000XM5</h3>
+                <p class="price">₹29,990</p>
+                <a href="#" class="buy">Add to Cart</a>
+            </div>
+
+            <div class="product">
+                <span class="category">Gaming</span>
+                <img src="https://images.unsplash.com/photo-1606813907291-d86efa9b94db?w=400" alt="PS5">
+                <h3 class="product-name">PlayStation 5 Console</h3>
+                <p class="price">₹54,990</p>
+                <a href="#" class="buy">Add to Cart</a>
+            </div>
+
+            <div class="product">
+                <span class="category">Camera</span>
+                <img src="https://images.unsplash.com/photo-1516035069371-29a1b244cc32?w=400" alt="Camera">
+                <h3 class="product-name">Canon EOS R50</h3>
+                <p class="price">₹72,000</p>
+                <a href="#" class="buy">Add to Cart</a>
+            </div>
+
+            <div class="product">
+                <span class="category">Accessories</span>
+                <img src="https://images.unsplash.com/photo-1597872200969-2b65d56bd16b?w=400" alt="Computer Parts">
+                <h3 class="product-name">2TB Portable SSD</h3>
+                <p class="price">₹12,500</p>
+                <a href="#" class="buy">Add to Cart</a>
+            </div>
+
+        </div>
+    </section>
+
+    <section id="contact" style="background: #fff; border-top: 1px solid #eee;">
+        <h2 class="section-title">Visit Our Store</h2>
+        <div style="display: flex; flex-wrap: wrap; gap: 40px; justify-content: center; padding: 20px;">
+            <div>
+                <h4>Email Us</h4>
+                <p>support@electrohub.com</p>
+            </div>
+            <div>
+                <h4>Call Us</h4>
+                <p>+91 98765 43210</p>
+            </div>
+            <div>
+                <h4>Location</h4>
+                <p>Tech Park, Mumbai, India</p>
+            </div>
+        </div>
+    </section>
+
+    <script>
+        function searchProducts() {
+            let input = document.getElementById("searchBar").value.toLowerCase();
+            let products = document.getElementsByClassName("product");
+            
+            for (let i = 0; i < products.length; i++) {
+                let name = products[i].getElementsByClassName("product-name")[0].innerText.toLowerCase();
+                let category = products[i].getElementsByClassName("category")[0].innerText.toLowerCase();
+                
+                if (name.includes(input) || category.includes(input)) {
+                    products[i].style.display = "block";
+                } else {
+                    products[i].style.display = "none";
+                }
+            }
+        }
+    </script>
+</body>
+</html>
